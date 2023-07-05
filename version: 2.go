@@ -1,0 +1,19 @@
+version: 2
+  updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: weekly
+    # New!
+    groups:
+      # This is the name of your group, it will be used in PR titles and branch names
+      dev-dependencies:
+        # A pattern can be...
+        patterns:
+          - "rubocop" # a single dependency name
+          - "aws*"  # or a wildcard string that matches multiple dependencies
+          # If you'd simply like to group as many dependencies together as possible, 
+          # you can use the wildcard * - but keep in mind this may open a very large PR!
+        # Additionally, you can specify any dependencies to be excluded from the group
+        exclude-patterns:
+          - "aws-sdk"
